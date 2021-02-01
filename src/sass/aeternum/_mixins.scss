@@ -1,0 +1,93 @@
+/* 레이아웃 공통 */
+@mixin common-layout($width: $layout-responsive-width, $max-width: $layout-general-width, $margin: null, $margin-t: null, $margin-b: null, $margin-l: auto, $margin-r: auto) {
+   @if $margin-t != null {
+      margin-top: $margin-t;
+   }
+
+   @if $margin-b != null {
+      margin-bottom: $margin-b;
+   }
+
+   @if $margin-l != null {
+      margin-left: $layout-margin;
+   }
+
+   @if $margin-r != null {
+      margin-right: $layout-margin;
+   }
+
+   @media (min-width: $min-standard-width) {
+      @if ($width != null) {
+         width: $layout-responsive-width;
+      }
+      
+      @if $max-width {
+         max-width: $max-width;
+      }
+
+      @if $margin != null {
+         margin: $margin;
+      } @else {
+         margin-left: $margin-l;
+         margin-right: $margin-r;
+      }
+   }
+}
+
+// clearfix
+@mixin clearfix {
+   &:after {
+      content: "";
+      display: table;
+      clear: both;
+   }
+}
+
+// focus
+@mixin activate-element($offset: -2px) {
+   &:focus,
+   &:active {
+      outline: thin dotted #666d72;
+      outline: 5px auto #666d72;
+      outline-offset: $offset;
+   }
+}
+
+/* text */
+@mixin heading($color: $black) {
+   color: $color;
+   font-weight: 700;
+   line-height: 1.4;
+}
+
+@mixin ellipsis {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+@mixin multiple-ellipsis($line-clamp) {
+   display: -webkit-box;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   -webkit-line-clamp: $line-clamp;
+   -webkit-box-orient: vertical;
+}
+
+@mixin figcaption {
+   margin-top: .8rem;
+   font-style: normal;
+   font-size: .95rem;
+   color: $grey10;
+   text-align: center;
+
+   &:before {
+      content: "[";
+      margin-right: .35rem;
+   }
+
+   &:after {
+      content: "]";
+      margin-left: .35rem;
+   }
+}

@@ -1,0 +1,103 @@
+.body {
+    &__wrapper {
+        min-height: 100vh;
+        padding: $layout-padding $layout-padding $layout-padding $side-menu-width + 1;
+        background-color: $grey02;
+        box-sizing: border-box;
+        @include clearfix;
+    }
+
+    &__contents {
+        display: inline-flex;
+        position: relative;
+        width: calc(100% - #{$side-menu-width});
+        min-height: calc(100vh - #{$layout-padding * 2});
+        padding: $layout-padding + .5 $layout-padding * 2;
+        background-color: $grey12;
+        box-sizing: border-box;
+
+        > section {
+            width: 100%;
+        }
+    }
+}
+
+.page-title {
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+.post {
+    &-list {
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+
+        > li {
+            margin: 0;
+            padding: 1.4rem 0;
+    
+            &:first-child {
+                padding-top: 0;
+            }
+    
+            ~ li {
+                border-top: 1px dashed $grey05;
+            }
+        }
+    
+        &__item {
+            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
+    
+            &-title {
+                > a {
+                    display: block;
+                    font-size: 1.3rem;
+                    line-height: 1.3;
+                    letter-spacing: 0;
+                    color: $black02;
+    
+                    &:hover {
+                        color: $black04;
+                        text-decoration: underline;
+                    }
+    
+                    &:before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                    }
+                }
+            }
+    
+            &-subtitle {
+                > strong {
+                    font-weight: inherit;
+                    font-size: 1.1rem;
+                    color: $sub-color03;
+                }
+            }
+    
+            &-contents {
+                font-size: .95rem;
+                line-height: 1.5;
+                letter-spacing: 0;
+            }
+    
+            &-date {
+                font-size: .85rem;
+            }
+        }
+    }
+
+    &-count {
+        margin-bottom: 0;
+        text-align: center;
+    }
+}

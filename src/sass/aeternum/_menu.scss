@@ -1,0 +1,77 @@
+.site-title {
+    display: block;
+    margin: 0 1rem 8.537886vh 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.4;
+    color: inherit;
+    text-align: center;
+
+    &:hover {
+        color: $black04;
+        text-decoration: underline;
+    }
+}
+
+.side-menu {
+    display: flex;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $side-menu-width;
+    height: 100vh;
+    padding-bottom: 1rem;
+    border-right: 1px solid #cacaca;
+    background-color: $grey12;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.menu {
+    &__list {
+        overflow-y: auto;
+        max-height: 44.823906vh;
+        margin: 0;
+        padding-left: 0;
+        list-style: none;
+        box-sizing: border-box;
+
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+
+            &-thumb {
+                border: 1px solid $black;
+                background-color: $grey12;
+
+                &:hover {
+                    background-color: $grey09;
+                }
+            }
+        }
+
+        &-item {
+            & ~ & {
+                margin-top: .25rem;
+            }
+
+            > a {
+                display: block;
+                padding: 1.494130vh 1rem;
+                line-height: 1.4;
+                color: $black02;
+                box-sizing: border-box;
+    
+                &:not([aria-current="page"]):hover {
+                    color: $black;
+                    text-decoration: underline;
+                }
+    
+                &[aria-current="page"] {
+                    background-color: $main-color;
+                    color: $black;
+                }
+            }
+        }
+    }
+}

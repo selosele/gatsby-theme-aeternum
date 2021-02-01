@@ -1,0 +1,10 @@
+.post {
+    &__title {
+        font-size: 2rem;
+    }
+
+    &__date {
+        text-align: right;
+        color: $grey10;
+    }
+}

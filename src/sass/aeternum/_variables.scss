@@ -1,0 +1,97 @@
+/* ==========================================================================
+   variables css
+   ========================================================================== */
+
+/* 레이아웃 */
+$layout-margin: 1rem !default;
+$layout-padding: 1rem !default;
+$side-menu-width: 16rem !default;
+$footer-height: 2.95rem !default;
+$li-default-margin: .666667em !default;
+
+// breakpoints (max-width)
+$general-width: 1920 !default;
+$normal-width: 1600 !default;
+$standard-width: 1420 !default;
+$large-width: 1200 !default;
+$big-width: 1024 !default;
+$medium-width: 768 !default;
+$small-width: 560 !default;
+$minimal-width: 480 !default;
+$tiny-width: 320 !default;
+
+// breakpoints (min-width)
+$min-general-width: ($general-width / 16) + 0em !default;
+$min-normal-width: ($normal-width / 16) + 0em !default;
+$min-standard-width: ($standard-width / 16) + 0em !default;
+$min-large-width: ($large-width / 16) + 0em !default;
+$min-big-width: ($big-width / 16) + 0em !default;
+$min-medium-width: ($medium-width / 16) + 0em !default;
+$min-small-width: ($small-width / 16) + 0em !default;
+$min-minimal-width: ($minimal-width / 16) + 0em !default;
+$min-tiny-width: ($tiny-width / 16) + 0em !default;
+
+/* font */
+$default-font: 'RIDIBatang' !default;
+$default-font02: Monaco,Consolas, "Lucida Console", monospace !default;
+$icon-font: "xeicon" !default;
+
+/* color */
+$main-color: #35d5ff !default; // 주 배경색상
+$sub-color01: #ffe7e7 !default;
+$sub-color02: #f74545 !default;
+$sub-color03: #0979d8 !default; // 주 텍스트색상
+$sub-color04: #f07178 !default;
+$sub-color05: #ec9597 !default;
+$sub-color06: #c76060 !default;
+$black: #333 !default;
+$black02: #525252 !default;
+$black03: #1e1e1e !default;
+$black04: #000 !default;
+$black05: #2a2a2a !default;
+$grey: #898c8f !default;
+$grey02: #f1f1f1 !default;
+$grey03: #ababab !default;
+$grey04: #e8e8e8 !default;
+$grey05: #ccc !default;
+$grey06: #e6e6e6 !default;
+$grey07: #fbfbfb !default;
+$grey08: #eaeaea !default;
+$grey09: #b9b9b9 !default;
+$grey10: #6f6f6f !default;
+$grey11: #8b8b8b !default;
+$grey12: #fff !default;
+$green01: #538204 !default;
+$green02: #7da537 !default;
+$green03: #619409 !default;
+$green04: #c3e88d !default;
+$green05: #769e2f !default;
+$blue: #89ddff !default;
+$blue02: #82aaff !default;
+$blue03: #263238 !default;
+$blue04: #b2ccd6 !default;
+$blue05: #eff !default;
+$blue06: #eeffff !default;
+$purple: #c792ea !default;
+$purple02: #8455a5 !default;
+$orange: #f78c6c !default;
+$orange02: #ffcb6b !default;
+$orange03: #cc6b18 !default;
+$orange04: #ca9443 !default;
+$yellow: #d7ba7d !default;
+$yellow02: #ff0 !default;
+$yellow03: #c7a938 !default;
+$twitter-color: #55acee !default;
+$facebook-color: #3b5998 !default;
+$linkedin-color: #007bb6 !default;
+
+$code-black: #151515 !default;
+$code-grey: #969896 !default;
+$code-grey02: #424242 !default;
+$code-red: #d54e53 !default;
+$code-orange: #e78c45 !default;
+$code-yellow: #e7c547 !default;
+$code-green: #70c0b1 !default;
+$code-green02: #b9ca4a !default;
+$code-blue: #7aa6da !default;
+$code-purple: #c397d8 !default;

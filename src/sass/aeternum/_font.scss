@@ -1,0 +1,10 @@
+/* RIDI batang */
+@font-face {
+   font-family: "RIDI batang";
+   font-display: swap;
+   src: local("RIDI batang"),
+        url('/src/font/ridibatang-webfont.woff2') format('woff2'),
+        url('/src/font/ridibatang-webfont.woff') format('woff');
+   font-style: normal;
+   font-weight: normal;
+}

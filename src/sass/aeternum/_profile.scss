@@ -1,0 +1,31 @@
+.body__profile {
+    float: right;
+    position: sticky;
+    top: 1rem;
+    width: calc(#{$side-menu-width} - #{$layout-padding});
+    min-height: calc(100vh - #{$layout-padding * 2});
+    padding: $layout-padding 0;
+    box-sizing: border-box;
+
+    &__image {
+        overflow: hidden;
+        max-width: 9rem;
+        height: 9rem;
+        margin: 0 auto;
+        border-radius: 50%;
+
+        .gatsby-image-wrapper,
+        picture {
+            height: 100%;
+        }
+    }
+
+    &__name {
+        padding: 1.5rem 0;
+        text-align: center;
+
+        > p {
+            margin: 0;
+        }
+    }
+}

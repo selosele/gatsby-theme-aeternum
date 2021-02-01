@@ -1,0 +1,303 @@
+/* base element */
+html {
+  font-size: 18px;
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+
+  @media (min-width: $min-medium-width) {
+     font-size: 19px;
+  }
+
+  @media (min-width: $min-large-width) {
+     font-size: 20px;
+  }
+}
+
+body {
+  image-rendering: -webkit-optimize-contrast;
+  font-family: $default-font;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -.01em;
+  line-height: 1;
+  color: $black;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+a {
+  color: $sub-color03;
+  text-decoration: none;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+a, button {
+  @include activate-element;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+
+  &[type="text"],
+  &[type="search"] {
+     border-radius: 0;
+     -webkit-appearance: none;
+  }
+  
+  &[type="checkbox"],
+  &[type="radio"] {
+     cursor: pointer;
+  }
+}
+
+label {
+  cursor: pointer;
+}
+
+mark {
+  background-color: $yellow02;
+  color: inherit;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: .85em;
+}
+
+li {
+  margin-top: $li-default-margin;
+  margin-bottom: $li-default-margin;
+}
+
+::selection {
+  background-color: $black04;
+  color: $grey12;
+}
+
+pre {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  line-height: 1.8;
+  white-space: pre-line;
+  word-break: break-all;
+  word-wrap: normal;
+}
+
+code {
+  font: inherit;
+}
+
+table {
+  table-layout: fixed;
+}
+
+caption {
+  padding: .4761905em;
+  line-height: 1.5;
+  color: $sub-color03;
+}
+
+td, th {
+  padding: .4761905em 1em;
+  border: 1px solid $grey05;
+  color: inherit;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+th {
+  background-color: $grey02;
+}
+
+br {
+  font-size: 0;
+}
+
+hr {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  border: 0;
+  border-top: 1px solid $grey06;
+}
+
+abbr {
+  text-decoration: none;
+
+  &[title] {
+     position: relative;
+     border-bottom: 1px dotted $black;
+     cursor: help;
+  }
+}
+
+/* hide element */
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+}
+
+/* skip links */
+.skip-links a {
+  color: #727272;
+  transition: all .2s;
+
+  &:focus,
+  &:active {
+     display: block;
+     clip: auto;
+     clip-path: none;
+     z-index: 100000;
+     width: auto;
+     height: auto;
+     margin: 0;
+     padding: 1.5rem;
+     background-color: $grey12;
+     box-shadow: 0 0 .1rem .1rem rgba(0, 0, 0, .6);
+     font-size: 1.5rem;
+     font-weight: 700;
+     text-decoration: none;
+  }
+
+  &:hover {
+     color: $black;
+  }
+}
+
+/* blockquote */
+blockquote {
+  position: relative;
+  z-index: 1;
+  margin-left: -$layout-margin;
+  margin-right: -$layout-margin;
+  padding: 1rem;
+  background-color: $grey02;
+  font-style: italic;
+
+  @media (min-width: $min-minimal-width) {
+     margin-left: 0;
+     margin-right: 0;
+  }
+
+  &:before {
+     content: "\275D";
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     z-index: -1;
+     width: auto;
+     height: auto;
+     font-size: 11.42857em;
+     font-style: normal;
+     line-height: 1;
+     color: rgba(0, 0, 0, .1);
+  }
+
+  cite {
+     &:before {
+        content: "\2014";
+        margin-right: .286em;
+        -webkit-font-smoothing: antialiased;
+     }
+  }
+}
+
+/* 각주 */
+sup {
+  margin: 0 .1rem;
+  line-height: 1;
+  vertical-align: super;
+}
+
+.footnote {
+  color: $grey;
+  font-size: .9rem;
+
+  &:before {
+     content: "[";
+  }
+
+  &:after {
+     content: "]";
+  }
+
+  @media (min-width: $min-large-width) {
+     &:hover,
+     &:focus,
+     &:active {
+        text-decoration: underline;
+     }
+  }
+}
+
+.footnotes {
+  margin-top: 2rem;
+  padding-top: 0.2rem;
+  border-top: 1px solid $grey04;
+
+  ol {
+     padding-left: 0;
+
+     li {
+        list-style: none;
+
+        p {
+           margin-top: 0;
+           margin-bottom: 0;
+           font-size: .8rem;
+           color: $grey;
+        }
+     }
+  }
+
+  .reversefootnote {
+     color: $black02;
+  }
+}
+
+/* iframe */
+iframe {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}

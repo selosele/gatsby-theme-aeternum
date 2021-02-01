@@ -1,0 +1,24 @@
+.search {
+    &__wrapper {
+        margin-top: 8.537886vh;
+        padding: 0 1rem;
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+        padding: .7rem;
+        border: 0;
+        background-color: $grey02;
+        font-size: .9rem;
+        box-sizing: border-box;
+    }
+
+    &__result {
+        display: none;
+
+        &--active {
+            display: table-cell;
+        }
+    }
+}

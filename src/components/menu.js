@@ -6,25 +6,25 @@ import SearchInput from "./SearchInput"
 import Footer from "./footer"
 
 const MenuItems = [
-	{
-		path: "/",
-		title: "Home"
-	},
-	{
-		path: "/about",
-		title: "About me"
-	}
+  {
+    path: "/",
+    title: "Home"
+  },
+  {
+    path: "/about",
+    title: "About me"
+  }
 ]
 
 const ListLink = props => (<div role="menuitem" className="menu__list-item"><Link to={props.to}>{props.children}</Link></div>)
 
 const Menu = ({ siteTitle }) => {
-	const MenuItemList = MenuItems.map((item, index) => <ListLink key={index} to={item.path}>{item.title}</ListLink>);
+  const MenuItemList = MenuItems.map((item, index) => <ListLink key={index} to={item.path}>{item.title}</ListLink>);
 
-	return (
-		<>
-			<nav id="side-menu" className="side-menu">
-				<div>
+  return (
+    <>
+      <nav id="side-menu" className="side-menu">
+        <div>
           <Link
             to="/"
             className="site-title"
@@ -39,18 +39,18 @@ const Menu = ({ siteTitle }) => {
           <SearchInput />
         </div>
 
-				<Footer />
-			</nav>
-		</>
-	);
+        <Footer />
+      </nav>
+    </>
+  );
 };
 
 Menu.propTypes = {
-	siteTitle: PropTypes.string
+  siteTitle: PropTypes.string
 }
 
 Menu.defaultProps = {
-	siteTitle: ``
+  siteTitle: ``
 }
 
 export default Menu

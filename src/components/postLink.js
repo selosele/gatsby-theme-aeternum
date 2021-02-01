@@ -6,7 +6,6 @@ const PostLink = ({ post }) => {
   const postTime = post.frontmatter.date.replace(/년 /, "-").replace(/월 /, "-").replace(/일/, "")
 
   return (
-    <>
     <li>
       <article aria-labelledby={urlTitle} className="post-list__item">
         <p className="post-list__item-date">
@@ -20,7 +19,6 @@ const PostLink = ({ post }) => {
         </h2>
       </article>
     </li>
-    </>
   );
 };
 
@@ -39,7 +37,6 @@ export const blogListQuery = graphql`
             date(formatString: "YYYY년 MM월 DD일")
             slug
             title
-            subtitle
           }
         }
       }

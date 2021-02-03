@@ -46,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
         createPaginatedPages({
           edges: posts,
           createPage: createPage,
-          pageTemplate: 'src/pages/index.js',
+          pageTemplate: path.resolve(`${__dirname}`, 'src/pages/index.js'),
           pageLength: siteConfig.postsPerPage,
           pathPrefix: 'page',
           buildPath: (index, pathPrefix) =>

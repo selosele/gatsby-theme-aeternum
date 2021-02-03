@@ -5,21 +5,13 @@ import { Link } from "gatsby"
 import SearchInput from "./SearchInput"
 import Footer from "./footer"
 
-const MenuItems = [
-  {
-    path: "/",
-    title: "Home"
-  },
-  {
-    path: "/about",
-    title: "About me"
-  }
-]
+const siteConfig = require("../../config")
+const MenuItems = siteConfig.menuItems
 
 const ListLink = props => (<div role="menuitem" className="menu__list-item"><Link to={props.to}>{props.children}</Link></div>)
 
 const Menu = ({ siteTitle }) => {
-  const MenuItemList = MenuItems.map((item, index) => <ListLink key={index} to={item.path}>{item.title}</ListLink>);
+  const MenuItemList = MenuItems.map((item, index) => <ListLink key={index} to={item.path}>{item.title}</ListLink>)
 
   return (
     <>

@@ -1,68 +1,87 @@
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const _ = require('lodash');
+const Promise = require('bluebird');
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+const createPaginatedPages = require('gatsby-paginate');
+const siteConfig = require('./config');
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
-  const blogPostTemplate = require.resolve(`./src/components/postView.js`)
-  const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            frontmatter {
-              slug
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  return new Promise((resolve, reject) => {
+    const blogPost = path.resolve(`${__dirname}`, './src/components/postView.js');
+    resolve(
+      graphql(
+        `
+          {
+            allMarkdownRemark(
+              sort: { fields: [frontmatter___date], order: DESC }
+              limit: 1000
+            ) {
+              edges {
+                node {
+                  fields {
+                    slug
+                  }
+                  excerpt
+                  frontmatter {
+                    slug
+                    title
+                    date(formatString: "YYYY년 MM월 DD일")
+                  }
+                }
+              }
             }
           }
+        `,
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors);
+          reject(result.errors);
         }
-      }
-    }
-  `)
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
-    return
+
+        const posts = result.data.allMarkdownRemark.edges;
+
+        // Create index page.
+        createPaginatedPages({
+          edges: posts,
+          createPage: createPage,
+          pageTemplate: 'src/pages/index.js',
+          pageLength: siteConfig.postsPerPage,
+          pathPrefix: 'page',
+          buildPath: (index, pathPrefix) =>
+            index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
+        })
+
+        _.each(posts, (post, index) => {
+          const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+          const next = index === 0 ? null : posts[index - 1].node;
+
+          // Create blog posts pages.
+          createPage({
+            path: post.node.frontmatter.slug,
+            component: blogPost,
+            context: {
+              slug: post.node.frontmatter.slug,
+              previous,
+              next,
+            },
+          });
+        });
+      }),
+    );
+  });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
   }
-
-  // Create blog-list pages
-  const posts = result.data.allMarkdownRemark.edges
-  const postsPerPage = 4
-  const numPages = Math.ceil(posts.length / postsPerPage)
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/page` : `/page/${i + 1}`,
-      component: path.resolve("./src/components/postLink.js"),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
-  })
-
-  // exports.onCreateNode = ({ node, actions, getNode }) => {
-  //   const { createNodeField } = actions
-  //   if (node.internal.type === `MarkdownRemark`) {
-  //     const value = createFilePath({ node, getNode })
-  //     createNodeField({
-  //       name: `slug`,
-  //       node,
-  //       value,
-  //     })
-  //   }
-  // }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: blogPostTemplate,
-      context: {
-        // additional data can be passed via context
-        slug: node.frontmatter.slug,
-      },
-    })
-  })
-}
+};

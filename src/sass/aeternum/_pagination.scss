@@ -1,5 +1,15 @@
 .pagination {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    @include clearfix;
+
+    &__link {
+        display: block;
+
+        &--prev {
+            float: left;
+        }
+
+        &--next {
+            float: right;
+        }
+    }
 }

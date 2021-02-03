@@ -1,8 +1,10 @@
 import React from "react"
 import Image from "./image"
 
+const siteConfig = require("../../config")
+
 const Profile = ({ file, alt, name }) => {
-  file = "avatar.jpg";
+  file = siteConfig.author.avatar
 
   return (
     <aside className="body__profile">

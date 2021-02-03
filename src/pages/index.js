@@ -5,11 +5,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostLink from "../components/postLink"
 
-const IndexPage = ({
-  data: {
-    allMarkdownRemark: { edges },
-  },
-}) => {
+const IndexPage = ({ data, pageContext }) => {
+  const { allMarkdownRemark } = data
+  const { edges } = data.allMarkdownRemark
+  const { frontmatter } = allMarkdownRemark
+
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date)
     .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
@@ -18,7 +18,9 @@ const IndexPage = ({
     <Layout>
       <SEO title="Home" />
       <h1 className="page-title sr-only">최근 포스트</h1>
+
       <ul className="post-list">{Posts}</ul>
+
       <p className="post-count">총 {edges.length}개의 포스트</p>
     </Layout>
   );

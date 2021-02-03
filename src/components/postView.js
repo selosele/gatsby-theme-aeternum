@@ -1,12 +1,13 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "./layout"
 import SEO from "./seo"
 
-export default function PostView({ data }){
+export default function PostView({ data, pageContext }){
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+  const { previous, next } = pageContext
   
   const post = data.markdownRemark
   const postTime = frontmatter.date.replace(/년 /, "-").replace(/월 /, "-").replace(/일/, "")
@@ -33,6 +34,20 @@ export default function PostView({ data }){
         </header>
         
         <article dangerouslySetInnerHTML={{ __html: html }} className="post__contents"></article>
+
+        <nav className="post__pagination">
+          {previous && (
+            <Link to={previous.frontmatter.slug} rel="prev" className="post__pagination__link post__pagination__link--prev">
+              &larr; {previous.frontmatter.title}
+            </Link>
+          )}
+
+          {next && (
+            <Link to={next.frontmatter.slug} rel="next" className="post__pagination__link post__pagination__link--next">
+              {next.frontmatter.title} &rarr;
+            </Link>
+          )}
+        </nav>
       </div>
     </Layout>
   )

@@ -6,7 +6,6 @@
 $layout-margin: 1rem !default;
 $layout-padding: 1rem !default;
 $side-menu-width: 16rem !default;
-$footer-height: 2.95rem !default;
 $li-default-margin: .666667em !default;
 
 // breakpoints (max-width)
@@ -37,10 +36,10 @@ $default-font02: Monaco,Consolas, "Lucida Console", monospace !default;
 $icon-font: "xeicon" !default;
 
 /* color */
-$main-color: #35d5ff !default; // 주 배경색상
+$main-color: #ce5050 !default; // 주 배경색상 #35d5ff
 $sub-color01: #ffe7e7 !default;
 $sub-color02: #f74545 !default;
-$sub-color03: #0979d8 !default; // 주 텍스트색상
+$sub-color03: #c44 !default; // 주 텍스트색상 #0979d8
 $sub-color04: #f07178 !default;
 $sub-color05: #ec9597 !default;
 $sub-color06: #c76060 !default;

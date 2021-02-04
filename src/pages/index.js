@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostLink from "../components/postLink"
+import SearchInput from "../components/searchInput"
 
 const IndexPage = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
@@ -18,6 +19,8 @@ const IndexPage = ({ data, pageContext }) => {
     <Layout>
       <SEO title="Home" />
       <h1 className="page-title sr-only">최근 포스트</h1>
+
+      <SearchInput />
 
       <ul className="post-list">{Posts}</ul>
 

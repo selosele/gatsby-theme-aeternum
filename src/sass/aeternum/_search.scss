@@ -1,17 +1,16 @@
 .search {
     &__wrapper {
-        margin-top: 8.537886vh;
-        padding: 0 1rem;
+        text-align: right;
+
+        input[type="text"] {
+            border-radius: 0.25rem;
+        }
     }
 
     &__input {
-        display: block;
-        width: 100%;
         padding: .7rem;
-        border: 0;
-        background-color: $grey02;
+        border: 1px solid $grey08;
         font-size: .9rem;
-        box-sizing: border-box;
     }
 
     &__result {

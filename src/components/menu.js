@@ -2,9 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import SearchInput from "./SearchInput"
-import Footer from "./footer"
-
 const siteConfig = require("../../config")
 const MenuItems = siteConfig.menuItems
 
@@ -27,11 +24,7 @@ const Menu = ({ siteTitle }) => {
           <div role="menu" tabIndex="0" className="menu__list">
             {MenuItemList}
           </div>
-
-          <SearchInput />
         </div>
-
-        <Footer />
       </nav>
     </>
   );

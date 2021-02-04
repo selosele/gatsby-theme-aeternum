@@ -6,6 +6,7 @@ import SkipLink from "./skipLink"
 import Menu from "./menu"
 import SearchResult from "./SearchResult"
 import Profile from "./profile"
+import Footer from "./footer"
 
 import "../css/style.scss"
 
@@ -42,6 +43,8 @@ const Layout = (props) => {
           alt={data.site.siteMetadata?.author || `Author`} 
           name={data.site.siteMetadata?.author || `Author`} 
         />
+
+        <Footer />
       </div>
     </>
   )

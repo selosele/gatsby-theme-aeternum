@@ -2,7 +2,6 @@
     &__wrapper {
         min-height: 100vh;
         padding: $layout-padding $layout-padding $layout-padding $side-menu-width + 1;
-        background-color: $grey02;
         box-sizing: border-box;
         @include clearfix;
     }
@@ -11,8 +10,8 @@
         display: inline-flex;
         position: relative;
         width: calc(100% - #{$side-menu-width});
-        min-height: calc(100vh - #{$layout-padding * 2});
-        padding: $layout-padding + .5 $layout-padding * 2;
+        min-height: calc(100vh - #{$layout-padding * 4});
+        padding: 0 $layout-padding * 2 $layout-padding;
         background-color: $grey12;
         box-sizing: border-box;
 
@@ -97,7 +96,7 @@
     }
 
     &-count {
-        margin-bottom: 0;
+        margin: 0;
         text-align: center;
     }
 }

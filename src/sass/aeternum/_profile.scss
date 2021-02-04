@@ -3,8 +3,9 @@
     position: sticky;
     top: 1rem;
     width: calc(#{$side-menu-width} - #{$layout-padding});
-    min-height: calc(100vh - #{$layout-padding * 2});
+    min-height: calc(100vh - #{$layout-padding * 4});
     padding: $layout-padding 0;
+    background-color: $grey02;
     box-sizing: border-box;
 
     &__image {

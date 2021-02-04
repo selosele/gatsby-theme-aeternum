@@ -22,7 +22,7 @@
     width: $side-menu-width;
     height: 100vh;
     padding-bottom: 1rem;
-    border-right: 1px solid #cacaca;
+    border-right: 1px solid $grey08;
     background-color: $grey12;
     align-items: center;
     box-sizing: border-box;
@@ -31,7 +31,7 @@
 .menu {
     &__list {
         overflow-y: auto;
-        max-height: 44.823906vh;
+        max-height: 64.034151vh;
         margin: 0;
         padding-left: 0;
         list-style: none;
@@ -69,7 +69,7 @@
     
                 &[aria-current="page"] {
                     background-color: $main-color;
-                    color: $black;
+                    color: $grey12;
                 }
             }
         }

@@ -28,6 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
                     slug
                     title
                     date(formatString: "YYYY년 MM월 DD일")
+                    image
                   }
                 }
               }

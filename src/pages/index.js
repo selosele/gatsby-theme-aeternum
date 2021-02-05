@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostLink from "../components/postLink"
-import SearchInput from "../components/searchInput"
 
 const IndexPage = ({ data, pageContext }) => {
   const { allMarkdownRemark } = data
@@ -20,11 +19,9 @@ const IndexPage = ({ data, pageContext }) => {
       <SEO title="Home" />
       <h1 className="page-title sr-only">최근 포스트</h1>
 
-      <SearchInput />
-
       <ul className="post-list">{Posts}</ul>
 
-      <p className="post-count">총 {edges.length}개의 포스트</p>
+      {/* <p className="post-count">총 {edges.length}개의 포스트</p> */}
     </Layout>
   );
 }
@@ -41,6 +38,9 @@ export const pageQuery = graphql`
             date(formatString: "YYYY년 MM월 DD일")
             slug
             title
+            image
+            categories
+            tags
           }
         }
       }

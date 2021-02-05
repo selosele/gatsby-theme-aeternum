@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "./image"
+import SearchInput from "../components/searchInput"
 
 const siteConfig = require("../../config")
 
@@ -16,6 +17,8 @@ const Profile = ({ file, alt, name }) => {
       <div className="body__profile__name">
         <p><strong>{name}</strong></p>
       </div>
+
+      <SearchInput />
     </aside>
   )
 }

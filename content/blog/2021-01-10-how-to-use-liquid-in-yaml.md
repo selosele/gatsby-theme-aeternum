@@ -3,6 +3,11 @@ slug: "/2021/01/10/how-to-use-liquid-in-yaml"
 date: "2021-01-10"
 title: "yml 파일 내에서 Liquid 코드 사용 삽질기"
 description: ""
+image: "1f335"
+categories:
+    - 퍼블노트
+tags:
+    - liquid
 ---
 
 블로그 테마를 수정하던 중, yml 파일 내에서 Liquid 코드를 사용해야 하는 상황을 만나게 되었다.

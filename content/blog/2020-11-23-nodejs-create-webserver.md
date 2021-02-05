@@ -3,6 +3,11 @@ slug: "/2020/11/23/nodejs-create-webserver"
 date: "2020-11-23"
 title: "Node.js로 간단한 웹서버 띄워보기"
 subtitle: "심심해서 시도해봤음"
+image: "1f438"
+categories:
+    - 퍼블노트
+tags:
+    - node.js
 ---
 
 실무에서 간단한 로컬 웹서버를 하나 띄울 수 있으면 좋겠다는 생각을 했었다. 로컬 html 파일에서 작업하는 것과 웹서버에 붙어서 작업하는 것의 차이가 좀 있기 때문이고, 무엇보다 Openwax 같은 웹 접근성 진단 도구를 이용한 테스트를 로컬 html 파일에선 불가능하므로..  

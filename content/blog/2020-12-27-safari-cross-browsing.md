@@ -4,6 +4,11 @@ date: "2020-12-27"
 title: "Safari에서 line-height 값이 어긋나는 문제.."
 subtitle: "vertical-align 속성값을 수치로 잡아야 함"
 description: ""
+categories:
+    - 퍼블노트
+tags:
+    - css
+    - safari
 ---
 
 아이폰 Safari에서 테스트를 하던 중 행간이 어긋나는 상황을 만나게 되었다. 정확히는 ```line-height```{:language-css} 속성값이 적용되지 않은 듯한 문제다.

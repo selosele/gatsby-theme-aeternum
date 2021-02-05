@@ -4,6 +4,12 @@ date: "2020-12-19"
 title: "WAI-ARIA에 대한 고찰 : 2탄"
 subtitle: "aria-expanded와 role='presentation'에 대해서"
 description: ""
+categories:
+    - 퍼블노트
+tags:
+    - html
+    - 웹 접근성
+    - WAI-ARIA
 ---
 
 지난 [1탄](/2020/11/15/about-wai-aria/)에 이어서 이번에는 ```aria-expanded```{:.language-html} 속성과 ```role='presentation'```{:.language-html} 속성값에 대해 풀어볼 것이다.

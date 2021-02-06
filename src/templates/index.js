@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const PaginationLink = props => {
   if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>
+    return <Link to={props.url} rel={props.rel}>{props.text}</Link>
   } else {
     return <span>{props.text}</span>
   }
@@ -17,8 +17,10 @@ const IndexPage = ({ data, pageContext }) => {
   const { frontmatter } = allMarkdownRemark
 
   const { group, index, first, last, pageCount } = pageContext
-  const previousUrl = index - 1 === 1 ? '/' : 'page' + (index - 1).toString()
-  const nextUrl = 'page' + (index + 1).toString()
+  const previousUrl = index - 1 == 1 ? '/' : '/page' + (index - 1).toString()
+  const nextUrl = '/page' + (index + 1).toString()
+  const firstUrl = '/'
+  const lastUrl = `/page${pageCount}`
 
   return (
     <Layout>
@@ -71,11 +73,17 @@ const IndexPage = ({ data, pageContext }) => {
 
       <nav className="pagination">
         <div className="pagination__link pagination__link--prev">
-          <PaginationLink test={first} url={previousUrl} text="이전" />
+          {index > 1 && 
+            <PaginationLink test={first} url={firstUrl} text="처음" />
+          }
+          <PaginationLink test={first} url={previousUrl} rel="prev" text="이전" />
         </div>
 
         <div className="pagination__link pagination__link--next">
-          <PaginationLink test={last} url={nextUrl} text="다음" />
+          <PaginationLink test={last} url={nextUrl} rel="next" text="다음" />
+          {index !== pageCount && 
+            <PaginationLink test={last} url={lastUrl} text="마지막" />
+          }
         </div>
       </nav>
     </Layout>

@@ -12,5 +12,5 @@ module.exports = {
   author: {
     avatar: "avatar.jpg"
   },
-  postsPerPage: 4,
+  postsPerPage: 5,
 }

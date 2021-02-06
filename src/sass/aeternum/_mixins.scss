@@ -1,40 +1,4 @@
-/* 레이아웃 공통 */
-@mixin common-layout($width: $layout-responsive-width, $max-width: $layout-general-width, $margin: null, $margin-t: null, $margin-b: null, $margin-l: auto, $margin-r: auto) {
-   @if $margin-t != null {
-      margin-top: $margin-t;
-   }
-
-   @if $margin-b != null {
-      margin-bottom: $margin-b;
-   }
-
-   @if $margin-l != null {
-      margin-left: $layout-margin;
-   }
-
-   @if $margin-r != null {
-      margin-right: $layout-margin;
-   }
-
-   @media (min-width: $min-standard-width) {
-      @if ($width != null) {
-         width: $layout-responsive-width;
-      }
-      
-      @if $max-width {
-         max-width: $max-width;
-      }
-
-      @if $margin != null {
-         margin: $margin;
-      } @else {
-         margin-left: $margin-l;
-         margin-right: $margin-r;
-      }
-   }
-}
-
-// clearfix
+/* clearfix */
 @mixin clearfix {
    &:after {
       content: "";
@@ -43,7 +7,7 @@
    }
 }
 
-// focus
+/* focus */
 @mixin activate-element($offset: -2px) {
    &:focus,
    &:active {
@@ -54,16 +18,19 @@
 }
 
 /* post */
-@mixin post-item($bg: null, $color: null) {
+@mixin post-item($bg: null, $color: null, $border: null) {
    display: block;
    float: left;
-   height: 1rem;
-   padding: .25rem .5rem;
+   height: 1.5rem;
+   margin: 0 .3rem .3rem 0;
+   padding: 0 .5rem;
    border-radius: 0.25rem;
+   @if ($border) { border: 1px solid $border };
    background-color: $bg;
    font-size: .85rem;
-   line-height: 1rem;
+   line-height: 1.5rem;
    color: $color;
+   box-sizing: border-box;
 }
 
 /* text */

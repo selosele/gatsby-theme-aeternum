@@ -31,6 +31,20 @@ export default function PostView({ data, pageContext }){
           <p className="post__date">
             <time dateTime={postTime}>{frontmatter.date}</time>
           </p>
+
+          <p className="post__labels">
+            {frontmatter.categories && 
+              <>
+              {frontmatter.categories.map((category, index) => <span key={index} className="post__labels__category">{category}</span>)}
+              </>
+            }
+
+            {frontmatter.tags && 
+              <>
+              {frontmatter.tags.map((tag, index) => <span key={index} className="post__labels__tag">{"#" + tag}</span>)}
+              </>
+            }
+          </p>
         </header>
         
         <article dangerouslySetInnerHTML={{ __html: html }} className="post__contents"></article>
@@ -64,7 +78,8 @@ export const pageQuery = graphql`
         title
         subtitle
         description
-        image
+        categories
+        tags
       }
     }
   }

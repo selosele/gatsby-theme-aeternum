@@ -1,7 +1,7 @@
 .body {
     &__wrapper {
         min-height: 100vh;
-        padding: $layout-padding $layout-padding $layout-padding $side-menu-width + 1;
+        padding: $layout-padding $layout-padding $layout-padding $menu-width + 1;
         box-sizing: border-box;
         @include clearfix;
     }
@@ -9,7 +9,7 @@
     &__contents {
         display: inline-flex;
         position: relative;
-        width: calc(100% - #{$side-menu-width});
+        width: calc(100% - #{$profile-area-width});
         min-height: calc(100vh - #{$layout-padding * 4});
         padding: 1rem $layout-padding * 2 $layout-padding;
         background-color: $grey12;
@@ -34,7 +34,7 @@
 
         > li {
             margin: 0;
-            padding: 1.8rem 0;
+            padding: 1.8rem 0 1.5rem;
     
             &:first-child {
                 padding-top: 0;
@@ -106,39 +106,51 @@
     
             &-date {
                 @include post-item($grey02);
-                margin: 0;
             }
 
             &-labels {
                 margin: 0;
                 @include clearfix;
-
-                > span {
-                    margin-right: .3rem;
-                }
             }
             
             &-category,
             &-tag {
                 overflow: hidden;
                 max-width: 70%;
-                margin: 0;
                 text-overflow: ellipsis;
                 white-space: nowrap;
             }
 
             &-category {
-                @include post-item($green03);
+                @include post-item($color: $green03, $border: $green03);
+                
+                &:before {
+                    content: "\eb14";
+                    font-family: $icon-font;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    vertical-align: middle;
+                }
             }
 
             &-tag {
-                @include post-item(null, $sub-color);
+                @include post-item($color: $sub-color, $border: $sub-color);
             }
         }
     }
+}
 
-    &-count {
-        margin: 0;
-        text-align: center;
+.pagination {
+    margin-top: 1.5rem;
+    @include clearfix;
+
+    &__link {
+        &--prev {
+            float: left;
+        }
+
+        &--next {
+            float: right;
+        }
     }
 }

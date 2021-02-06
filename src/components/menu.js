@@ -12,8 +12,8 @@ const Menu = ({ siteTitle }) => {
 
   return (
     <>
-      <nav id="side-menu" className="side-menu">
-        <div>
+      <nav id="menu" className="menu">
+        <div className="menu__inner">
           <Link
             to="/"
             className="site-title"

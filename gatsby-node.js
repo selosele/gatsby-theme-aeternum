@@ -16,19 +16,23 @@ exports.createPages = ({ graphql, actions }) => {
           {
             allMarkdownRemark(
               sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
             ) {
               edges {
                 node {
+                  id
                   fields {
                     slug
                   }
                   excerpt
                   frontmatter {
                     slug
-                    title
                     date(formatString: "YYYY년 MM월 DD일")
+                    title
+                    subtitle
+                    description
                     image
+                    categories
+                    tags
                   }
                 }
               }
@@ -43,22 +47,23 @@ exports.createPages = ({ graphql, actions }) => {
 
         const posts = result.data.allMarkdownRemark.edges;
 
-        // Create index page.
+        // index 페이지 생성
         createPaginatedPages({
           edges: posts,
           createPage: createPage,
-          pageTemplate: path.resolve(`${__dirname}`, 'src/pages/index.js'),
+          pageTemplate: 'src/templates/index.js',
           pageLength: siteConfig.postsPerPage,
           pathPrefix: 'page',
           buildPath: (index, pathPrefix) =>
-            index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
+            index > 1 ? `${pathPrefix}${index}` : `/`,
+          context: {},
         })
 
         _.each(posts, (post, index) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
 
-          // Create blog posts pages.
+          // 포스트 뷰페이지 생성
           createPage({
             path: post.node.frontmatter.slug,
             component: blogPost,

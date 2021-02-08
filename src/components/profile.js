@@ -1,4 +1,5 @@
 import React from "react"
+
 import Image from "./image"
 import SearchInput from "../components/searchInput"
 

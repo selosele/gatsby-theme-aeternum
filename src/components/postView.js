@@ -19,46 +19,46 @@ export default function PostView({ data, pageContext }){
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
       />
-      <div className="post__contents">
-        <header className="post__header">
-          <h1 className="post__title">{frontmatter.title}</h1>
+      <div className="page__contents" itemScope itemType="https://schema.org/CreativeWork">
+        <header className="page__header">
+          <h1 className="page__title">{frontmatter.title}</h1>
           
           {frontmatter.subtitle && 
-            <p className="post__subtitle">
+            <p className="page__subtitle">
               <strong>{frontmatter.subtitle}</strong>
             </p>
           }
 
-          <p className="post__date">
+          <p className="page__date">
             <time dateTime={postTime}>{frontmatter.date}</time>
           </p>
 
-          <p className="post__labels">
+          <p className="page__labels">
             {frontmatter.categories && 
               <>
-              {frontmatter.categories.map((category, index) => <span key={index} className="post__labels__category">{category}</span>)}
+              {frontmatter.categories.map((category, index) => <a key={index} href="#" itemProp="keywords" rel="tag" className="page__labels__category">{category}</a>)}
               </>
             }
 
             {frontmatter.tags && 
               <>
-              {frontmatter.tags.map((tag, index) => <span key={index} className="post__labels__tag">{"#" + tag}</span>)}
+              {frontmatter.tags.map((tag, index) => <a key={index} href="#" itemProp="keywords" rel="tag" className="page__labels__tag">{"#" + tag}</a>)}
               </>
             }
           </p>
         </header>
         
-        <article dangerouslySetInnerHTML={{ __html: html }} className="post__contents"></article>
+        <article dangerouslySetInnerHTML={{ __html: html }} className="page__body"></article>
 
-        <nav className="post__pagination">
+        <nav className="post-pagination">
           {previous && (
-            <Link to={previous.frontmatter.slug} rel="prev" className="post__pagination__link post__pagination__link--prev">
+            <Link to={previous.frontmatter.slug} rel="prev" className="post-pagination__link post-pagination__link--prev">
               &larr; {previous.frontmatter.title}
             </Link>
           )}
 
           {next && (
-            <Link to={next.frontmatter.slug} rel="next" className="post__pagination__link post__pagination__link--next">
+            <Link to={next.frontmatter.slug} rel="next" className="post-pagination__link post-pagination__link--next">
               {next.frontmatter.title} &rarr;
             </Link>
           )}

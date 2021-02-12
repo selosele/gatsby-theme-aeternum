@@ -1,4 +1,4 @@
-.post {
+.page {
     &__contents {
         padding: $layout-padding * 2 0;
         font-size: 1.05rem;
@@ -19,7 +19,7 @@
         justify-content: flex-end;
         flex-wrap: wrap;
 
-        > span {
+        > a {
             display: block;
             margin: 0 0 .4rem .4rem;
         }
@@ -32,8 +32,10 @@
 
         }
     }
+}
 
-    &__pagination {
+.post {
+    &-pagination {
         @include clearfix;
 
         &__link {

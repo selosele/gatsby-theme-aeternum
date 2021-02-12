@@ -31,7 +31,7 @@ const IndexPage = ({ data, pageContext }) => {
       <ul className="post-list">
         {group.map(({ node }) => (
           <li key={node.id}>
-            <article aria-labelledby={"TITLE-" + node.id} className="post-list__item">
+            <article itemScope itemType="https://schema.org/CreativeWork" aria-labelledby={"TITLE-" + node.id} className="post-list__item">
               {node.frontmatter.image && 
                 <span 
                   aria-hidden="true" 
@@ -57,13 +57,13 @@ const IndexPage = ({ data, pageContext }) => {
       
                 {node.frontmatter.categories && 
                   <>
-                  {node.frontmatter.categories.map((category, index) => <span key={index} className="post-list__item-category">{category}</span>)}
+                  {node.frontmatter.categories.map((category, index) => <span key={index} itemProp="keywords" className="post-list__item-category">{category}</span>)}
                   </>
                 }
       
                 {node.frontmatter.tags && 
                   <>
-                  {node.frontmatter.tags.map((tag, index) => <span key={index} className="post-list__item-tag">{"#" + tag}</span>)}
+                  {node.frontmatter.tags.map((tag, index) => <span key={index} itemProp="keywords" className="post-list__item-tag">{"#" + tag}</span>)}
                   </>
                 }
               </p>

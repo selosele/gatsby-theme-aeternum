@@ -1,18 +1,13 @@
-/* core CSS */
-@import "../css/XEicon/xeicon.min.css",
+@import "//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css",
         "./aeternum/font",
         "./aeternum/variables",
         "./aeternum/mixins",
-        "./aeternum/reset";
-
-/* layout CSS */
-@import "./aeternum/base",
+        "./aeternum/reset",
+        "./aeternum/base",
         "./aeternum/menu",
         "./aeternum/search",
         "./aeternum/page",
         "./aeternum/profile",
         "./aeternum/body",
-        "./aeternum/footer";
-
-/* custom CSS */
-@import "./aeternum/custom";
+        "./aeternum/footer",
+        "./aeternum/custom";

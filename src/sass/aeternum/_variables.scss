@@ -1,15 +1,9 @@
-/* ==========================================================================
-   variables css
-   ========================================================================== */
-
-/* 레이아웃 */
 $layout-margin: 1rem !default;
 $layout-padding: 1rem !default;
 $menu-width: 25rem !default;
 $profile-area-width: 16rem !default;
 $li-default-margin: .666667em !default;
 
-// breakpoints (max-width)
 $general-width: 1920 !default;
 $normal-width: 1600 !default;
 $standard-width: 1420 !default;
@@ -20,7 +14,6 @@ $small-width: 560 !default;
 $minimal-width: 480 !default;
 $tiny-width: 320 !default;
 
-// breakpoints (min-width)
 $min-general-width: ($general-width / 16) + 0em !default;
 $min-normal-width: ($normal-width / 16) + 0em !default;
 $min-standard-width: ($standard-width / 16) + 0em !default;
@@ -31,12 +24,10 @@ $min-small-width: ($small-width / 16) + 0em !default;
 $min-minimal-width: ($minimal-width / 16) + 0em !default;
 $min-tiny-width: ($tiny-width / 16) + 0em !default;
 
-/* font */
 $default-font: "RIDIBatang" !default;
 $default-font02: Monaco,Consolas, "Lucida Console", monospace !default;
 $icon-font: "xeicon" !default;
 
-/* color */
 $main-color: #ce5050 !default; // 주 배경색상, 기존 : #35d5ff
 $sub-color: #c44 !default; // 주 텍스트색상, 기존 : #0979d8
 $black: #333 !default;

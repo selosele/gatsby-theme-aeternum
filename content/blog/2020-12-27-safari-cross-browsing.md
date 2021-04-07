@@ -7,8 +7,8 @@ description: ""
 categories:
     - 퍼블노트
 tags:
-    - css
-    - safari
+    - CSS
+    - Safari
 ---
 
 아이폰 Safari에서 테스트를 하던 중 행간이 어긋나는 상황을 만나게 되었다. 정확히는 ```line-height```{:language-css} 속성값이 적용되지 않은 듯한 문제다.

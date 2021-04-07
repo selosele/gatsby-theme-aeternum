@@ -6,7 +6,7 @@ subtitle: "aria-label과 aria-labelledby에 대해서"
 categories:
     - 퍼블노트
 tags:
-    - html
+    - HTML
     - 웹 접근성
     - WAI-ARIA
 ---

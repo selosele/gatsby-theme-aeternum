@@ -6,7 +6,7 @@ subtitle: "display: table 속성을 선언했을 때"
 categories:
     - 퍼블노트
 tags:
-    - css
+    - CSS
 ---
 
 또 그놈의 소수점 때문에 골이 아픔..  

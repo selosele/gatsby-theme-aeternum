@@ -7,7 +7,7 @@ description: ""
 categories:
     - 퍼블노트
 tags:
-    - html
+    - HTML
     - 웹 접근성
     - WAI-ARIA
 ---

@@ -5,7 +5,7 @@ title: "nav 요소 내에 button 요소를 포함할 수 있는가?"
 categories:
     - 퍼블노트
 tags:
-    - html
+    - HTML
 ---
 
 제곧내..  
